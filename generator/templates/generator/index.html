@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Code Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;  /* align container near top */
+            padding-top: 80px;        /* space from top */
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px 0 0 8px;
+            outline: none;
+        }
+
+        button {
+            padding: 0 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;  /* blue color */
+            color: #fff;
+            cursor: pointer;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;  /* darker blue on hover */
+        }
+
+        .qr-code {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            background-color: #fafafa;
+            display: inline-block;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            padding: 12px;
+            background-color: #007bff;  /* blue color */
+            color: #fff;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #0056b3;  /* darker blue on hover */
+        }
+
+        img {
+            max-width: 250px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="data" placeholder="Enter text or URL" required
+                   value="{{ request.POST.data|default:'' }}">
+            <button type="submit">&#x21bb; Generate</button>
+        </form>
+
+        {% if qr_image %}
+        <div class="qr-code">
+            <img src="data:image/png;base64,{{ qr_image }}" alt="QR Code">
+        </div>
+
+        <a href="data:image/png;base64,{{ qr_image }}" download="qrcode.png" class="download-btn">
+            Download QR Code
+        </a>
+        {% endif %}
+    </div>
+</body>
+</html>
