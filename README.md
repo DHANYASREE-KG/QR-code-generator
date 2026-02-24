@@ -134,7 +134,7 @@ QRPROJECT
 ### 🔹 Generated QR Code
 
 <p align="center">
-  <img src="images/generated.png" width="600">
+  <img src="images/qr.png" width="600">
 </p>
 
 ---
