@@ -15,7 +15,18 @@ A simple and clean web application built using **Django** that allows users to g
 
 ---
 
-## 🛠️ Installation & Setup
+## 🛠️ Technologies Used
+
+- Python  
+- Django  
+- qrcode library  
+- Pillow  
+- HTML & CSS  
+- SQLite  
+
+---
+
+## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the Repository
 
@@ -96,6 +107,7 @@ QRPROJECT
  ┣ manage.py
  ┣ db.sqlite3
  ┣ README.md
+ ┣ images/
  ┗ venv
 ```
 
@@ -111,6 +123,22 @@ QRPROJECT
 
 ---
 
+## 🖼️ Screenshots
+
+### 🔹 Home Page
+
+<p align="center">
+  <img src="images/home.png" width="600">
+</p>
+
+### 🔹 Generated QR Code
+
+<p align="center">
+  <img src="images/qr.png" width="600">
+</p>
+
+---
+
 ## 🎯 Learning Outcomes
 
 - Understanding Django project structure  
@@ -121,24 +149,13 @@ QRPROJECT
 
 ---
 
-## 🖼️ Screenshots
-
-Add your project images inside an `images` folder and link them like this:
-
-```markdown
-![Home Page](images/home.png)
-![Generated QR Code](images/qr.png)
-```
-
----
-
 ## 👩‍💻 Developed By
 
 **K. G. Dhanyasree**  
 Aspiring Software Developer  
 
-GitHub: https://github.com/DHANYASREE-KG  
-LinkedIn: https://www.linkedin.com/in/dhanya-sree-k-g  
+🔗 GitHub: https://github.com/DHANYASREE-KG  
+🔗 LinkedIn: https://www.linkedin.com/in/dhanya-sree-k-g  
 
 ---
 
