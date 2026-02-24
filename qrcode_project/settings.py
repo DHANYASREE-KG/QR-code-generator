@@ -1,15 +1,13 @@
 from pathlib import Path
-import os
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-local-secret-key')
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+SECRET_KEY = 'your-local-secret-key'
+DEBUG = True
 
-# Add your deployed domain
-ALLOWED_HOSTS = ['yourapp.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 # Installed apps
 INSTALLED_APPS = [
@@ -19,7 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'generator',  # Your QR generator app
+    'generator',
 ]
 
 # Middleware
@@ -33,12 +31,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'qrcode_project.urls'  # Replace with your project name
+ROOT_URLCONF = 'qrcode_project.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # global templates folder if used
+        'DIRS': [],  # Not needed because you're using app templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -51,9 +49,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'qrcode_project.wsgi.application'  # Replace with your project name
+WSGI_APPLICATION = 'qrcode_project.wsgi.application'
 
-# Database (use SQLite for simple apps)
+# Database (SQLite)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -75,11 +73,10 @@ TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JS, images)
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Static files
+STATIC_URL = 'static/'
 
-# Media (if you plan to save uploaded files)
+# Media files (for QR images)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
